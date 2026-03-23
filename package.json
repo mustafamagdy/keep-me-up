@@ -24,7 +24,7 @@
     "url": "https://github.com/mutafow/keep-me-up"
   },
   "dependencies": {
-    "@nut-tree/nut-js": "^2.0.1"
+    "@jitsi/robotjs": "^0.6.13"
   },
   "devDependencies": {
     "@types/node": "^17.0.16",
@@ -33,14 +33,12 @@
   "pkg": {
     "scripts": "index.js",
     "assets": [
-      "package.json",
-      "node_modules/desktop-idle",
-      "node_modules/@nut-tree"
+      "package.json"
     ],
     "targets": [
-      "node16-macos",
-      "node16-linux",
-      "node16-win"
+      "node18-macos",
+      "node18-linux",
+      "node18-win"
     ],
     "outputPath": "build",
     "compress": "GZip"

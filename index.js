@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 //@ts-check
 
-/** Import nut-js which handles the mouse-moving functionalities */
-const { mouse, Point, sleep } = require("@nut-tree/nut-js");
+/** Import robotjs which handles the mouse-moving functionalities */
+const robot = require("@jitsi/robotjs");
 const { version } = require("./package.json");
 
 const colored = {
@@ -170,17 +170,15 @@ const run = async () => {
       moveSign *= -1;
 
       /** Get last position of the cursor and move it by the given offset */
-      const prevPosition = await mouse.getPosition();
-      const coordinates = new Point(
+      const prevPosition = robot.getMousePos();
+      robot.moveMouse(
         prevPosition.x + nextMoveOffset,
         prevPosition.y + nextMoveOffset
       );
-
-      await mouse.setPosition(coordinates);
     }
 
     /** Sleep 1 second */
-    await sleep(1_000);
+    await new Promise((resolve) => setTimeout(resolve, 1_000));
   }
 };
 
